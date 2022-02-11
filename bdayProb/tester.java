@@ -6,8 +6,7 @@ public class tester {
 	{
 		function test = new function();
 		test.run(5,15);
-
+		//bruhh
 	}
 	
-
 }
