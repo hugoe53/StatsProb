@@ -4,11 +4,11 @@ package bdayProb;
 import java.util.Random;
 
 
-public class person 
+public class Person 
 {
 	final Random rand = new Random();
 	private int birthday;
-	public person()
+	public Person()
 	{
 		birthday = rand.nextInt(365)+1;
 	}

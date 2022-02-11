@@ -1,6 +1,6 @@
 package bdayProb;
 
-public class function 
+public class Calc 
 {
 	public void run(int tRuns, int tClassSize)
 	{
@@ -10,10 +10,10 @@ public class function
 		{
 			int sameDays=0;
 			int runsLoop = tRuns;
-			person[] test = new person[tClassSize];
+			Person[] test = new Person[tClassSize];
 			for (int i =0; i<tClassSize;i++)
 			{
-				test[i] = new person();
+				test[i] = new Person();
 				System.out.println(test[i].getBday());
 			}
 			System.out.println("---------");

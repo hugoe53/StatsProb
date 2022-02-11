@@ -1,10 +1,10 @@
 package bdayProb;
 
-public class tester {
+public class bdayTester {
 
 	public static void main(String[] args) 
 	{
-		function test = new function();
+		Calc test = new Calc();
 		test.run(5,15);
 		//bru
 	}
