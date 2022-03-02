@@ -5,39 +5,38 @@ public class Calc
 	public void run(int tRuns, int tClassSize)
 	{
 		int trialLoop=tRuns;
-		int runTotal=0;
+		double runTotal=0;
+		int sameDays=0;
 		while(trialLoop!=0)
 		{
-			int sameDays=0;
-			int runsLoop = tRuns;
+			
 			Person[] test = new Person[tClassSize];
 			for (int i =0; i<tClassSize;i++)
 			{
 				test[i] = new Person();
-				System.out.println(test[i].getBday());
+
 			}
-			System.out.println("---------");
-			while(runsLoop!=0)
+			for(int i = 0; i<test.length;i++)
 			{
-				sameDays=0;
-				for(int i =0; i<test.length;i++)
+				sameDays = 0;
+				for (int j= i+1; j<test.length;j++)
 				{
-					for(int j =i+1; j<test.length;j++)
+					if(test[i].getBday()==test[j].getBday())
 					{
-						if(test[i].getBday()==test[j].getBday())
-						{
-							sameDays++;
-							System.out.println("Here " +test[i].getBday() +" "+ test[j].getBday());
-							
-						}
+						sameDays++;
+						break;
 					}
-					
+						
 				}
-				runTotal+=sameDays;
-				runsLoop--;
+				if(sameDays==1){
+					runTotal++;
+					break;
+				}
+				
 			}
 			trialLoop--;
+			
 		}
-		System.out.println("There were "+runTotal/tRuns+" pair(s) that had the same birthday in a class of "+ tClassSize+" and after "+ tRuns +" runs.");
+		System.out.println("The percentage of people sharing a birthday is " +((double)runTotal/(double)tRuns)*100+"%." );
 	}
 }

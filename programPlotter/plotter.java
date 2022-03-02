@@ -1,40 +1,42 @@
-package csvWriter;
+package programPlotter;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.util.Random;
-public class csvWriter 
+
+public class plotter 
 {
         FileWriter fw;
         BufferedWriter bw;
         Random rand = new Random();
-        int id;
-        int randFavNumber;
+        int xVal;
+        double yVal;
     
-        public csvWriter()
+        public plotter()
         {
             try
             {
-                fw = new FileWriter("numbers.csv");
+                fw = new FileWriter("data.csv");
             } 
             catch(Exception e)
             {
                 System.out.println("Error Has Occured: " + e.toString());
             }
         }
-    
-        public void outputNumbers(int times)
+        public void outputData(int times)
         {
             bw = new BufferedWriter(fw);
             try
             {
                 try
                 {
-                    bw.write("ID,User Input\n");
-                    for(int i=1; i<=times;i++)
+                    bw.write("X Value ,Y Value\n");
+                    for(int i=0; i<=times;i++)
                     {
-                        id = i;
-                        randFavNumber = rand.nextInt(1000);
-                        bw.write(id + "," +randFavNumber + "\n");
+                        xVal = i;
+                        double slope = .5;
+                        int yIntercept = 3;
+                        yVal = (slope*xVal)+yIntercept;
+                        bw.write(xVal + "," +yVal + "\n");
                     }
                 } 
                 finally 
@@ -48,5 +50,4 @@ public class csvWriter
             }
     
         }
-     
 }
