@@ -163,8 +163,8 @@ public class functions
 	}
 
 	/**
-	 * *This uses BigInteger to solve factorials.
-	 * @param fact
+	 * * This uses BigInteger to solve factorials.
+	 * @param fact - This is the number you are trying to find the factorial of
 	 * @return the factorial answer
 	 */
 	public BigInteger factorial(double fact)
@@ -200,9 +200,10 @@ public class functions
 		double bottom = part3.doubleValue();
 		return temp/bottom;
 	}
-	public double poisson()
+	public double poisson(double temp, double lambda)
 	{
-		return 0.0;
+		BigInteger fact = (factorial(temp));
+		return Math.pow(Math.E, (-lambda))*((Math.pow(lambda, temp))/fact.doubleValue());
 	}
 	public double chebyshev()
 	{
