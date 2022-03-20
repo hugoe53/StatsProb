@@ -1,20 +1,21 @@
-package programSalter;
+package programSmoother;
+import java.util.*;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.util.Random;
-import java.io.File;  
+import java.io.File;
 import java.io.FileNotFoundException;  
-import java.util.Scanner; 
-public class salter 
+
+public class smoother 
 {
     FileWriter fw;
     BufferedWriter bw;
     Random rand = new Random();
-    public salter()
+    public smoother()
     {
         try
             {
-                fw = new FileWriter("newData.csv");
+                fw = new FileWriter("finalData.csv");
             } 
             catch(Exception e)
             {
@@ -29,11 +30,11 @@ public class salter
             try
             {
                 bw.write("X Value ,Y Value\n");
-                File myObj = new File("data.csv");
-                        Scanner myReader = new Scanner(myObj);
-                        String header = myReader.nextLine();
-                        double newYval=0;
-                        double newXval=0;
+                File myObj = new File("newData.csv");
+                Scanner myReader = new Scanner(myObj);
+                String header = myReader.nextLine();
+                ArrayList<Double> xVal = new ArrayList<Double>();
+                ArrayList<Double> yVal = new ArrayList<Double>();
                     for(int i=0; i<=times;i++)
                     {
                         
@@ -44,13 +45,20 @@ public class salter
                             {
                                 int index = data.indexOf(',');
                                 int startChange = index+1;
-                                newYval = Double.valueOf(data.substring(startChange));
-                                newXval= Double.valueOf(data.substring(0, startChange-1));
-                                newYval=newYval+bound;
+                                
+                                double newYval = Double.valueOf(data.substring(startChange));
+                                double newXval= Double.valueOf(data.substring(0, startChange-1));
+                                xVal.add(newXval);
+                                yVal.add(newYval);
+                                double sum = 0.0;
+                                int count = 0;
+                                double average = 0.0;
+                                //bw.write(newXval + "," +average + "\n");
                             }
-                            bw.write(newXval + "," +newYval + "\n");
+                            
                             break;
                         }
+                        
                     }
             } 
             finally 
@@ -65,4 +73,3 @@ public class salter
 
     }
 }
-    

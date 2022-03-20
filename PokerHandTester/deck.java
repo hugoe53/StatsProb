@@ -10,7 +10,7 @@ public class deck
     {
         for(int i = 0; i<4;i++)
         {
-            for(int j = 1; j <14;j++)
+            for(int j = 1; j <=13;j++)
             {
             if(i==0)
             {
@@ -48,17 +48,23 @@ public class deck
             temp++;
         }
     }
+    /**
+     * This method ix 
+     */
     public void shuffleCards()
     {
         Collections.shuffle(deck);
     }
     public card drawCard()
     {
-        Random rand = new Random();
-        int choice = rand.nextInt(52);
-        card temp = deck.get(choice);
-        deck.remove(choice);
+
+        card temp = deck.get(0);
+        deck.remove(0);
         return temp;
+        
+    }
+    public void pairTester()
+    {
         
     }
 }

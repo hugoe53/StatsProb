@@ -1,10 +1,9 @@
-package programSalter;
-
-public class salterTester 
+package programSmoother;
+public class smootherTester 
 {
     public static void main(String[] args)
     {
-        salter test = new salter();
+        smoother test = new smoother();
         test.outputData(10000,10);
     }    
 }
