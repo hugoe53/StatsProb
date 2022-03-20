@@ -161,10 +161,7 @@ public class functions
 		System.out.println("Complement of set A is :"+ set + " ");
 		
 	}
-	//public double factorial(int fact)
-	{
-	//	if()
-	}
+
 	/**
 	 * *This uses BigInteger to solve factorials.
 	 * @param fact
@@ -203,6 +200,15 @@ public class functions
 		double bottom = part3.doubleValue();
 		return temp/bottom;
 	}
+	public double poisson()
+	{
+		return 0.0;
+	}
+	public double chebyshev()
+	{
+		return 0.0;
+	}
+
 	public void results(double[] tempArray,ArrayList<Double> test1,ArrayList<Double> test2)		//a method that prints all results
 	{
 		System.out.println("The mean is :"+mean(tempArray)+". The median is :"+median(tempArray)+". The mode is : "+mode(tempArray)+".");
