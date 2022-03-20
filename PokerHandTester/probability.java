@@ -14,7 +14,7 @@ public class probability
             if(test.twoOfAKind()==1)
                 total++;
         }
-        System.out.println(total/10000.0 *100);
+        System.out.println("The probability of getting a pair in 10,000 hands is : " + total/10000.0 *100);
     }
     public void twoPairTester()
     {
@@ -25,7 +25,7 @@ public class probability
             if(test.twoPairs()==2)
                 total++;
         }
-        System.out.println(total/10000.0 *100);
+        System.out.println("The probability of getting two pairs in 10,000 hands is : " + total/10000.0 *100);
     }
     public void threeKindTester()
     {
@@ -36,7 +36,7 @@ public class probability
             if(test.threeOfAKind()==1)
                 total++;
         }
-        System.out.println(total/10000.0 *100);
+        System.out.println("The probability of getting a three of a kind in 10,000 hands is : " + total/10000.0 *100);
     }
     public void fourKindTester()
     {
@@ -47,7 +47,7 @@ public class probability
             if(test.fourOfAKind()==1)
                 total++;
         }
-        System.out.println(total/10000.0 *100);
+        System.out.println("The probability of getting a four of a kind in 10,000 hands is : " + total/10000.0 *100);
     }
     public void straightTester()
     {
@@ -58,7 +58,7 @@ public class probability
             if(test.straightCheck())
                 total++;
         }
-        System.out.println(total/10000.0 *100);
+        System.out.println("The probability of getting a straight in 10,000 hands is : " + total/10000.0 *100);
     }
     public void flushTester()
     {
@@ -69,7 +69,7 @@ public class probability
             if(test.flush())
                 total++;
         }
-        System.out.println(total/10000.0 *100);
+        System.out.println("The probability of getting a flush in 10,000 hands is : " + total/10000.0 *100);
     }
     public void fullHouseTester()
     {
@@ -80,6 +80,16 @@ public class probability
             if(test.fullHouse())
                 total++;
         }
-        System.out.println(total/10000.0 *100);
+        System.out.println("The probability of getting a pair in 10,000 hands is : " + total/10000.0 *100);
+    }
+    public void printAll()
+    {
+        pairTester();
+        twoPairTester();
+        threeKindTester();
+        fourKindTester();
+        straightTester();
+        flushTester();
+        fullHouseTester();
     }
 }
