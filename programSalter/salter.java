@@ -24,6 +24,7 @@ public class salter
     public void outputData(int times,int bound)
     {
         bw = new BufferedWriter(fw);
+        Random rand = new Random();
         try
         {
             try
@@ -46,7 +47,11 @@ public class salter
                                 int startChange = index+1;
                                 newYval = Double.valueOf(data.substring(startChange));
                                 newXval= Double.valueOf(data.substring(0, startChange-1));
-                                newYval=newYval+bound;
+                                if(rand.nextInt(2)==1)
+                                    newYval=newYval+bound;
+                                else
+                                    newYval=newYval-bound;
+                                
                             }
                             bw.write(newXval + "," +newYval + "\n");
                             break;

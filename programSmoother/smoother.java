@@ -40,6 +40,7 @@ public class smoother
                         
                         while (myReader.hasNextLine()) 
                         {   
+                            
                             String data = myReader.nextLine();
                             for(int j = 0; j<= data.length();j++)
                             {
@@ -50,15 +51,28 @@ public class smoother
                                 double newXval= Double.valueOf(data.substring(0, startChange-1));
                                 xVal.add(newXval);
                                 yVal.add(newYval);
-                                double sum = 0.0;
-                                int count = 0;
-                                double average = 0.0;
+                                
                                 //bw.write(newXval + "," +average + "\n");
                             }
+                            
                             
                             break;
                         }
                         
+                    }
+                    double sum = 0.0;
+                    int count = 0;
+                    double average = 0.0;
+                    for(int j = 0; j< yVal.size();j++)
+                    {
+                            sum+=yVal.get(j);
+                            count++;
+                            average = sum/(double)count;
+                            yVal.set(j, average);
+                    }
+                    for(int i=0; i<=times;i++)
+                    {
+                        bw.write(i + "," +yVal.get(i) + "\n");
                     }
             } 
             finally 

@@ -33,8 +33,8 @@ public class plotter
                     for(int i=0; i<=times;i++)
                     {
                         xVal = i;
-                        double slope = .5;
-                        int yIntercept = 3;
+                        double slope = .7;
+                        int yIntercept = 38;
                         yVal = (slope*xVal)+yIntercept;
                         bw.write(xVal + "," +yVal + "\n");
                     }

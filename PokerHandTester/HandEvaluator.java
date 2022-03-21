@@ -98,6 +98,7 @@ public class HandEvaluator
     }
     public boolean straightCheck()
     {
+        
         if(hand.get(4).getNumber()==hand.get(3).getNumber()+1 && hand.get(3).getNumber()==hand.get(2).getNumber()+1&&hand.get(2).getNumber()==hand.get(1).getNumber()+1 &&hand.get(1).getNumber()==hand.get(0).getNumber()+1)
             return true;
         else if (hand.get(0).getNumber()==hand.get(1).getNumber()+1 && hand.get(1).getNumber()==hand.get(2).getNumber()+1 && hand.get(2).getNumber()==hand.get(3).getNumber()+1 && hand.get(3).getNumber()==hand.get(4).getNumber()+1)
@@ -148,8 +149,7 @@ public class HandEvaluator
                             }
                         }
                     }
-                }
-                
+                }     
             }
         }
         return pairs;

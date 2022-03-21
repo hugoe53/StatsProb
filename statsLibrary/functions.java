@@ -177,6 +177,15 @@ public class functions
 		return factorialAns;
 
 	}
+	
+	/**
+	 * This method can solve any binomial distribution problem.
+	 * @param n - number of trials
+	 * @param p - probability of success
+	 * @param q - probability of failure
+	 * @param y - probability of certain event occuring
+	 * @return The probaility of something happening after a fixed amount of trials.
+	 */ 
 	public double binomialDistribution(double n,double p, double q, double y )
 	{
 		BigInteger combinations = combination(n, y);
@@ -186,10 +195,25 @@ public class functions
 		double temp = qVal*pVal;
 		return comb*temp;
 	}
+	/**
+	 * This method solves any geometric distribution problem with 3 inputs.
+	 * @param p - probability of success
+	 * @param q - probability of failure
+	 * @param y - the amount of tries
+	 * @return The probability of something happening after a certain amount of fails.
+	 */
 	public double geometricDistribution(double p, double q, double y)
 	{
 		return Math.pow(q, (y-1))*p;
 	}
+	/**
+	 * This method solves any hypergeometric distribution with 4 inputs.
+	 * @param N - the total set
+	 * @param n - the amount that is being selected (subset)
+	 * @param r - amount of success in that total set
+	 * @param y - amounf of success in the subset
+	 * @return The probability of success within that specific criteria.
+	 */
 	public double hypergeometricDistribution(double N, double n, double r, double y)
 	{
 		BigInteger part1 = combination(r, y);
@@ -205,12 +229,16 @@ public class functions
 		BigInteger fact = (factorial(temp));
 		return Math.pow(Math.E, (-lambda))*((Math.pow(lambda, temp))/fact.doubleValue());
 	}
-	public double chebyshev()
+	public double Tchebyshev(double SD, double mean, double tUpper, double tLower)
 	{
-		return 0.0;
+		double k = 0.0;
+		if((tUpper-mean) == (tLower-mean))
+			k = (tUpper-mean)/SD;
+		double finalAns = 1 -(1/(Math.pow(k, 2)));
+		return finalAns;
 	}
 
-	public void results(double[] tempArray,ArrayList<Double> test1,ArrayList<Double> test2)		//a method that prints all results
+	public void results(double[] tempArray,ArrayList<Double> test1,ArrayList<Double> test2)		
 	{
 		System.out.println("The mean is :"+mean(tempArray)+". The median is :"+median(tempArray)+". The mode is : "+mode(tempArray)+".");
 		System.out.println();
@@ -229,5 +257,11 @@ public class functions
 		System.out.println();
         System.out.println("The permutation is : "+perms(3));    // This is 2.36 in the book
         System.out.println("The permutation is : "+perms(6));    // This is 2.37a in the book
+	}
+	public void results()
+	{
+		System.out.println(binomialDistribution(5,.75,.25,3));
+        System.out.println(geometricDistribution(.99,.01,2))	;
+        System.out.println(hypergeometricDistribution(196,10,101,7));
 	}
 }
