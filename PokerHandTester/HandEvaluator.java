@@ -1,12 +1,10 @@
 package PokerHandTester;
-import java.nio.channels.NetworkChannel;
 import java.util.*;
-
-import javax.lang.model.util.ElementScanner6;
 
 public class HandEvaluator
 {
-     private ArrayList<card> hand = new ArrayList<card>();
+    private ArrayList<card> hand = new ArrayList<card>();
+    //This in the hand constructor
     public HandEvaluator()
     {
         deck deckHand = new deck();
@@ -28,6 +26,7 @@ public class HandEvaluator
         }
         System.out.println();
     }
+    //This method uses two loops to compare two cards to see if it finds a pair
     public int twoOfAKind()
     {
         int pairs = 0;
@@ -41,6 +40,7 @@ public class HandEvaluator
         }
         return pairs;
     }
+    //This method uses three loops to check if there is a three of a kind in a hand
     public int threeOfAKind()
     {
         int pairs = 0;
@@ -58,6 +58,7 @@ public class HandEvaluator
         }
         return pairs;
     }
+    //This method uses four loops to check if there is a four of a kind in a hand
     public int fourOfAKind()
     {
         int pairs = 0;
@@ -78,6 +79,7 @@ public class HandEvaluator
         }
         return pairs;
     }
+    //This method uses two loops to check if there is two pairs in a hand
     public int twoPairs()
     {
         int pairs = 0;
@@ -96,6 +98,7 @@ public class HandEvaluator
         }
         return pairs;
     }
+    //This method uses if statements to check if there is a straight in a hand
     public boolean straightCheck()
     {
         
@@ -106,6 +109,7 @@ public class HandEvaluator
         else
             return false;
     }
+    //Method to compare numbers
     public boolean numCheck(card t1, card t2)
     {
         if (t1.getNumber()==t2.getNumber())
@@ -113,6 +117,7 @@ public class HandEvaluator
         else   
             return false;
     }
+    //Method to compare suits
     public boolean suitCheck(card t1, card t2)
     {
         if (t1.suit()==t2.suit())
@@ -120,6 +125,7 @@ public class HandEvaluator
         else   
             return false;
     }
+    //This method uses an if statement to check if there is a flush in a hand
     public boolean flush()
     {
         if(suitCheck(hand.get(0), hand.get(1)) && suitCheck(hand.get(1), hand.get(2))&&suitCheck(hand.get(2), hand.get(3))&&suitCheck(hand.get(3), hand.get(4)))
@@ -181,6 +187,7 @@ public class HandEvaluator
         }
         return pairs;
     }
+    //This method uses an if statement to check if both cases of a full house could be true in a hand
     public boolean fullHouse()
     {
         

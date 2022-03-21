@@ -224,15 +224,29 @@ public class functions
 		double bottom = part3.doubleValue();
 		return temp/bottom;
 	}
+	/**
+	 * This method solves any poisson distribution problem with 2 inputs.
+	 * @param temp - the certain amount that is being asked
+	 * @param lambda - the rate that is being given
+	 * @return The probability of something occuring within a certain rate.
+	 */
 	public double poisson(double temp, double lambda)
 	{
 		BigInteger fact = (factorial(temp));
 		return Math.pow(Math.E, (-lambda))*((Math.pow(lambda, temp))/fact.doubleValue());
 	}
+	/**
+	 * This solves a problem using tchebyshev's theoreum with 4 inputs.
+	 * @param SD - the standard deviation
+	 * @param mean - the mean
+	 * @param tUpper - the upper bound
+	 * @param tLower - the lower bound
+	 * @return The probability of something occurring within the upper and lower bounds.
+	 */
 	public double Tchebyshev(double SD, double mean, double tUpper, double tLower)
 	{
 		double k = 0.0;
-		if((tUpper-mean) == (tLower-mean))
+		if((tUpper-mean) == (mean-tLower))
 			k = (tUpper-mean)/SD;
 		double finalAns = 1 -(1/(Math.pow(k, 2)));
 		return finalAns;
@@ -258,10 +272,15 @@ public class functions
         System.out.println("The permutation is : "+perms(3));    // This is 2.36 in the book
         System.out.println("The permutation is : "+perms(6));    // This is 2.37a in the book
 	}
+	/**
+	 * This method prints the probabilities of the distributions.
+	 */
 	public void results()
 	{
-		System.out.println(binomialDistribution(5,.75,.25,3));
-        System.out.println(geometricDistribution(.99,.01,2))	;
-        System.out.println(hypergeometricDistribution(196,10,101,7));
+		System.out.println("Binomial Distribution result: " +binomialDistribution(5,.75,.25,3));
+        System.out.println("Geometric Distribution result: " +geometricDistribution(.99,.01,2))	;
+        System.out.println("Hypergeometric Distribution result: " +hypergeometricDistribution(196,10,101,7));
+		System.out.println("Poisson Distribution result: " +poisson(0,5));
+		System.out.println("Tchebyshev's theoreum result: " +Tchebyshev(2, 20, 24, 16));
 	}
 }

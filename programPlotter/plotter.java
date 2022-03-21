@@ -15,13 +15,14 @@ public class plotter
         {
             try
             {
-                fw = new FileWriter("data.csv");
+                fw = new FileWriter("plotterData.csv");
             } 
             catch(Exception e)
             {
                 System.out.println("Error Has Occured: " + e.toString());
             }
         }
+        //This is the method that prints each line 
         public void outputData(int times)
         {
             bw = new BufferedWriter(fw);
@@ -30,6 +31,7 @@ public class plotter
                 try
                 {
                     bw.write("X Value ,Y Value\n");
+                    //This next part specifically finds the Y values based on the X values
                     for(int i=0; i<=times;i++)
                     {
                         xVal = i;

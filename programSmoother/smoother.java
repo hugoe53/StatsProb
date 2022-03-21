@@ -11,11 +11,12 @@ public class smoother
     FileWriter fw;
     BufferedWriter bw;
     Random rand = new Random();
+    
     public smoother()
     {
         try
             {
-                fw = new FileWriter("finalData.csv");
+                fw = new FileWriter("smootherData.csv");
             } 
             catch(Exception e)
             {
@@ -30,7 +31,7 @@ public class smoother
             try
             {
                 bw.write("X Value ,Y Value\n");
-                File myObj = new File("newData.csv");
+                File myObj = new File("salterData.csv");
                 Scanner myReader = new Scanner(myObj);
                 String header = myReader.nextLine();
                 ArrayList<Double> xVal = new ArrayList<Double>();

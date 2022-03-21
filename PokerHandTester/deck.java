@@ -5,7 +5,9 @@ import java.util.*;
 public class deck 
 {
     private ArrayList<card> deck = new ArrayList<card>();
-    private ArrayList<card> shuffledDeck = new ArrayList<card>();
+    /**
+     * This is the deck constructor that assigns numbers and suits.
+     */
     public deck()
     {
         for(int i = 0; i<4;i++)
@@ -37,8 +39,8 @@ public class deck
             }
         }
     }
-          
-    }    
+}
+    //This method is used to print the deck.
     public void printDeck()
     {
         int temp = 0;
@@ -49,22 +51,19 @@ public class deck
         }
     }
     /**
-     * This method ix 
+     * This method shuffles the cards.
      */
     public void shuffleCards()
     {
         Collections.shuffle(deck);
     }
+    //This method draws a card and removes it from the deck.
     public card drawCard()
     {
 
         card temp = deck.get(0);
         deck.remove(0);
         return temp;
-        
-    }
-    public void pairTester()
-    {
         
     }
 }
