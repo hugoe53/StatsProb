@@ -14,13 +14,18 @@ public class salter
     {
         try
             {
-                fw = new FileWriter("newData.csv");
+                fw = new FileWriter("salterData.csv");
             } 
             catch(Exception e)
             {
                 System.out.println("Error Has Occured: " + e.toString());
             }
     }
+    /**
+     * This method prints the data line by line
+     * @param times - the amount of lines you want
+     * @param bound - what you want added or subtracted to the y value
+     */
     public void outputData(int times,int bound)
     {
         bw = new BufferedWriter(fw);
@@ -30,7 +35,7 @@ public class salter
             try
             {
                 bw.write("X Value ,Y Value\n");
-                File myObj = new File("data.csv");
+                File myObj = new File("plotterData.csv");
                         Scanner myReader = new Scanner(myObj);
                         String header = myReader.nextLine();
                         double newYval=0;
