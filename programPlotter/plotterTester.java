@@ -6,7 +6,6 @@ public class plotterTester
     {
         plotter test = new plotter();
         int trials = 1000;
-
         test.outputData(trials);
 
     }    
