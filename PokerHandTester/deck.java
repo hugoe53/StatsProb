@@ -51,13 +51,13 @@ public class deck
         }
     }
     /**
-     * This method shuffles the cards.
+     * This method shuffles the cards. Harry Zhu helped me with this method.
      */
     public void shuffleCards()
     {
         Collections.shuffle(deck);
     }
-    //This method draws a card and removes it from the deck.
+    //This method draws a card and removes it from the deck. Harry Zhu helped me with this method.
     public card drawCard()
     {
 
