@@ -101,10 +101,14 @@ public class HandEvaluator
     //This method uses if statements to check if there is a straight in a hand
     public boolean straightCheck()
     {
-        
-        if(hand.get(4).getNumber()==hand.get(3).getNumber()+1 && hand.get(3).getNumber()==hand.get(2).getNumber()+1&&hand.get(2).getNumber()==hand.get(1).getNumber()+1 &&hand.get(1).getNumber()==hand.get(0).getNumber()+1)
-            return true;
-        else if (hand.get(0).getNumber()==hand.get(1).getNumber()+1 && hand.get(1).getNumber()==hand.get(2).getNumber()+1 && hand.get(2).getNumber()==hand.get(3).getNumber()+1 && hand.get(3).getNumber()==hand.get(4).getNumber()+1)
+        ArrayList<Integer> handVals = new ArrayList<Integer>();
+        handVals.add(hand.get(0).getNumber());
+        handVals.add(hand.get(1).getNumber());
+        handVals.add(hand.get(2).getNumber());
+        handVals.add(hand.get(3).getNumber());
+        handVals.add(hand.get(4).getNumber());
+        Collections.sort(handVals);
+        if(handVals.get(4)==handVals.get(3)+1 && handVals.get(3)==handVals.get(2)+1&&handVals.get(2)==handVals.get(1)+1 &&handVals.get(1)==handVals.get(0)+1)
             return true;
         else
             return false;
