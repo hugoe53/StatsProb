@@ -13,6 +13,15 @@ public class Graph{
     private ArrayList<Double> yVal = new ArrayList<Double>();
     public void smoother()
     {
+        DescriptiveStatistics smooth = new DescriptiveStatistics();
+        smooth.setWindowSize(30);
+        double yValue;
+        for(int i = 0; i<yVal.size();i++)
+        {
+            smooth.addValue(yVal.get(i));
+            yValue = smooth.getMean();
+            yVal.set(i, yValue);
+        }
 
     }
     public void fillInitialValues()
@@ -59,8 +68,8 @@ public class Graph{
         }
         JFreeChart test = ChartFactory.createLineChart(name,"X Values from 0 to 1000","Y Values",yValues,PlotOrientation.VERTICAL,true,true,false);
 
-            int width = 3600;
-            int height = 1600;
+            int width = 1000;
+            int height = 700;
             File saltedchart = new File(fileName + ".jpeg");
             try 
             {
