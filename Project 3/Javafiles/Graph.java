@@ -68,8 +68,8 @@ public class Graph{
         }
         JFreeChart test = ChartFactory.createLineChart(name,"X Values from 0 to 1000","Y Values",yValues,PlotOrientation.VERTICAL,true,true,false);
 
-            int width = 1000;
-            int height = 700;
+            int width = 5000;
+            int height = 3000;
             File saltedchart = new File(fileName + ".jpeg");
             try 
             {
