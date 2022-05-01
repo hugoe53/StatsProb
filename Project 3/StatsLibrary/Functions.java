@@ -218,17 +218,17 @@ public class Functions
 	{
 		return Math.pow(q, (y-1))*p;
 	}
-	public double geoExpected(double r, double p)
+	public double geoExpected(double p)
 	{
-		return r/p;
+		return 1/p;
 	}
-	public double geoVariance(double r, double p)
+	public double geoVariance( double p)
 	{
-		return (r*(1-p))/(Math.pow(p, 2));
+		return ((1-p))/(Math.pow(p, 2));
 	}
-	public double geoStandDev(double r, double p)
+	public double geoStandDev( double p)
 	{
-		return Math.sqrt(geoVariance(r, p));
+		return Math.sqrt(geoVariance(p));
 	}
 	/**
 	 * This method solves any hypergeometric distribution with 4 inputs.
@@ -340,9 +340,21 @@ public class Functions
 		compliment(firstHalf, dataset);
 		System.out.println();
 		System.out.println("The odds of getting four schools that are all in Somerset County are: " + binomialDistribution(50,.14,.86,4));
+		System.out.println("The expected of this is: "+ binomialExpected(.14));
+		System.out.println("The variance of this is: " +binomialVariance(.14));
+		System.out.println("The standard deviation of this is: " +binomialSD(.14));
 		System.out.println("The odds of getting a Somerset county school on the 5th try is: " + geometricDistribution(.14, .86, 5));
+		System.out.println("The expected of this is: "+ geoExpected(.14));
+		System.out.println("The variance of this is: " +geoVariance(.14));
+		System.out.println("The standard deviation of this is: " +geoStandDev(.14));
 		System.out.println("The odds of getting two Monmouth county school with a combined score over 1300 are: " + hypergeometricDistribution(50, 7, 5, 2) );
+		System.out.println("The expected of this is: "+ hypergeoExpected(50,7,5));
+		System.out.println("The variance of this is: " +hypergeoVariance(50,7,5));
+		System.out.println("The standard deviation of this is: " +hypergeoStandDev(50,7,5));
 		System.out.println("The odds of the top 50 schools getting 50 representative visits this year is : " +poisson(50, 50));
+		System.out.println("The expected of this is: "+ poissonExpected(50));
+		System.out.println("The variance of this is: " +poissonVariance(50));
+		System.out.println("The standard deviation of this is: " +poissonStandDev(50));
 		System.out.println("The odds of the picking a school in the upper half of this list is : " + Tchebyshev(7,13 , 25, 1));
 		System.out.println();
 		System.out.println("The odds of the picking the last 5 schools in the list is: " + uniformProbabilityDistribution(5, 50, 1));
