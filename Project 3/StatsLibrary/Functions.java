@@ -42,16 +42,16 @@ public class Functions
 			int count = 0;
 			for(int j = 0; j <temp.size(); j++)
 			{
-				if(temp.get(j) == temp.get(i))
+				if(temp.get(i)==temp.get(j))
 				{
 					count++;
 				}
-			}
-				
+			}	
 			if(count>finalCount)
 			{
 				finalCount = count;
 				mode = temp.get(i);
+				
 			}
 			
 		}
@@ -125,7 +125,7 @@ public class Functions
 		for(Double num:answer)
 			if(!finalAnswer.contains(num))
 				finalAnswer.add(num);
-			System.out.print("Union of the two sets are :"+ finalAnswer + " ");
+			System.out.print( finalAnswer + " ");
 			System.out.println();
 	}
 	public void intersection (ArrayList<Double> temp1,ArrayList<Double> temp2)	// set intersection
@@ -141,7 +141,7 @@ public class Functions
 			if(subset.contains(num))
 				finalAnswer.add(num);
 		
-		System.out.print("Intersection of the two sets are :"+ finalAnswer + " ");
+		System.out.print( finalAnswer + " ");
 		System.out.println();
 		
 	}
@@ -158,7 +158,7 @@ public class Functions
 		for(Double num:finalAnswer)
 			if(set.contains(num))
 				set.remove(num);
-		System.out.println("Complement of set A is :"+ set + " ");
+		System.out.println( set + " ");
 		
 	}
 
@@ -299,9 +299,9 @@ public class Functions
 		double finalAns = 1 -(1/(Math.pow(k, 2)));
 		return finalAns;
 	}
-    public double uniformProbabilityDistribution(int largerVal, int smallerVal)
+    public double uniformProbabilityDistribution(int x, int largerVal, int smallerVal)
 	{
-		return 1/(double)(largerVal-smallerVal);
+		return (double)(x - smallerVal)/(double)(largerVal-smallerVal);
 	}
 	public double uniformExpected(double largerVal, double smallerVal)
 	{
@@ -318,13 +318,50 @@ public class Functions
 	{
 		ArrayList<Double> dataset = new ArrayList<Double>();
 		fillDataset(dataset);
-		System.out.println(dataset.get(0));
-		System.out.println(dataset.get(1));
-		
+		System.out.println("The mean of the top 50 SAT scores in New Jersey high schools is: "+ mean(dataset));
+		System.out.println("The median of the top 50 SAT scores in New Jersey high schools is: "+ median(dataset));
+		System.out.println("The mode of the top 50 SAT scores in New Jersey high schools is: "+ median(dataset));
+		System.out.println("The standard deviation of the top 50 SAT scores in New Jersey high schools is: "+ SD(dataset));
+		System.out.println("The variance of the top 50 SAT scores in New Jersey high schools is: "+ Variance(dataset));
+		System.out.println();
+		System.out.println("The combination of all the Somerset County School and Camden County Schools is: " + combination(7, 1));
+		System.out.println("The permutation of all the Somerset County Schools is: " + perms(7));
+		System.out.println();
+		ArrayList<Double> firstHalf= new ArrayList<>();
+		ArrayList<Double> secondHalf = new ArrayList<>();
+		splitData(firstHalf, secondHalf, dataset);
+		System.out.print("After splitting the list in half, this is the union: "); 
+		union(firstHalf, secondHalf);
+		System.out.println();
+		System.out.print("After splitting the list in half, this is the intersection: "); 
+		intersection(firstHalf, secondHalf);
+		System.out.println();
+		System.out.print("The compliment of the first half of the list is : ");
+		compliment(firstHalf, dataset);
+		System.out.println();
+		System.out.println("The odds of getting four schools that are all in Somerset County are: " + binomialDistribution(50,.14,.86,4));
+		System.out.println("The odds of getting a Somerset county school on the 5th try is: " + geometricDistribution(.14, .86, 5));
+		System.out.println("The odds of getting two Monmouth county school with a combined score over 1300 are: " + hypergeometricDistribution(50, 7, 5, 2) );
+		System.out.println("The odds of the top 50 schools getting 50 representative visits this year is : " +poisson(50, 50));
+		System.out.println("The odds of the picking a school in the upper half of this list is : " + Tchebyshev(7,13 , 25, 1));
+		System.out.println();
+		System.out.println("The odds of the picking the last 5 schools in the list is: " + uniformProbabilityDistribution(5, 50, 1));
 	}
 	public void fillDataset(ArrayList<Double> temp)
 	{
 		Collections.addAll(temp, 1498.0,1492.0,1467.0,1420.0,1413.0,1405.0,1400.0,1378.0,1361.0,1360.0,1350.0,1347.0,1347.0,1340.0,1320.0,1316.0,1311.0,1302.0,1282.0,1278.0,1272.0,1269.0,1268.0,1266.0,1266.0,1266.0,1258.0,1256.0,1248.0,1244.0,1239.0,1237.0,1235.0,1235.0,1231.0,1230.0,1226.0,1225.0,1225.0,1223.0,1222.0,1221.0,1219.0,1219.0,1217.0,1217.0,1216.0,1214.0);
+
+	}
+	public void splitData(ArrayList<Double> firstHalf,ArrayList<Double> secondHalf,ArrayList<Double> temp)
+	{
+		for(int i =0;i<temp.size()/2;i++)
+		{
+			firstHalf.add(temp.get(i));
+		}
+		for(int i= temp.size()/2;i<temp.size();i++)
+		{
+			secondHalf.add(temp.get(i));
+		}
 
 	}
 }
