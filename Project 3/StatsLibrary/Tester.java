@@ -5,8 +5,6 @@ public class Tester
 	{
 		Functions test1 = new Functions();
 		test1.project3Results();
-        	
-
 	}
 
 }
